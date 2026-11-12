@@ -136,14 +136,21 @@ import { IconComponent } from '../icon/icon.component';
       bottom: 0;
       left: 0;
       right: 0;
+      width: 100%;
+      max-width: 100vw;
       z-index: 1500;
       display: grid;
-      grid-template-columns: 1fr 1.25fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
       background-color: #FFFFFF;
       border-top: 1px solid var(--color-border);
       box-shadow: 0 -4px 16px rgba(10, 30, 63, 0.12);
-      padding: 0.5rem 0.75rem;
-      gap: 0.5rem;
+      padding: 0.45rem 0.5rem;
+      gap: 0.35rem;
+
+      @media (min-width: 380px) {
+        padding: 0.5rem 0.75rem;
+        gap: 0.5rem;
+      }
 
       @media (min-width: 769px) {
         display: none !important;

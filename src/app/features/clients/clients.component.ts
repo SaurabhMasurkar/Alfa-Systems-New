@@ -148,10 +148,16 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     .marquee-wrapper {
       background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
       border-radius: var(--radius-xl);
-      padding: 2rem;
-      margin-bottom: 3.5rem;
+      padding: 1.35rem 1rem;
+      margin-bottom: 3rem;
       box-shadow: var(--shadow-xl);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2rem;
+        margin-bottom: 3.5rem;
+      }
 
       .marquee-title {
         color: #38BDF8;
@@ -166,15 +172,15 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .featured-clients-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
 
       @media (min-width: 600px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -182,11 +188,12 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 1rem 1.25rem;
+      padding: 1rem 1.15rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       transition: all var(--transition-fast);
+      min-width: 0;
 
       &:hover {
         background: rgba(2, 132, 199, 0.2);
@@ -212,12 +219,14 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       .client-details {
         display: flex;
         flex-direction: column;
+        min-width: 0;
 
         .client-name {
           color: #FFFFFF;
           font-weight: 700;
           font-size: 0.9rem;
           line-height: 1.3;
+          overflow-wrap: break-word;
         }
 
         .client-loc {
@@ -300,20 +309,20 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     /* Directory Grid */
     .clients-directory-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
       margin-bottom: 3.5rem;
 
       @media (min-width: 560px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       @media (min-width: 900px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       @media (min-width: 1150px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -325,6 +334,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       transition: all var(--transition-fast);
+      min-width: 0;
+      overflow-wrap: break-word;
 
       &:hover {
         background-color: #FFFFFF;
@@ -381,12 +392,18 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
       color: #FFFFFF;
       border-radius: var(--radius-xl);
-      padding: 2.25rem 2rem;
+      padding: 1.5rem 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: center;
       text-align: center;
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2.25rem 2rem;
+        gap: 1.5rem;
+      }
 
       @media (min-width: 860px) {
         flex-direction: row;
@@ -396,6 +413,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       }
 
       .invite-content {
+        min-width: 0;
+
         h3 {
           color: #FFFFFF;
           font-size: 1.35rem;
@@ -411,7 +430,20 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       }
 
       .invite-action {
-        flex-shrink: 0;
+        width: 100%;
+
+        .btn {
+          width: 100%;
+        }
+
+        @media (min-width: 540px) {
+          width: auto;
+          flex-shrink: 0;
+
+          .btn {
+            width: auto;
+          }
+        }
       }
     }
   `]

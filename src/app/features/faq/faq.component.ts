@@ -88,13 +88,19 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     .faq-question-btn {
       width: 100%;
       text-align: left;
-      padding: 1.25rem 1.5rem;
+      padding: 1rem 1.15rem;
       background: none;
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
+      min-width: 0;
+
+      @media (min-width: 600px) {
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+      }
     }
 
     .faq-cat-tag {
@@ -113,11 +119,17 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     }
 
     .faq-title {
-      font-size: 1.05rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--color-primary);
-      flex-grow: 1;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: break-word;
       line-height: 1.35;
+
+      @media (min-width: 600px) {
+        font-size: 1.05rem;
+      }
     }
 
     .faq-toggle-icon {
@@ -127,9 +139,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     }
 
     .faq-answer-pane {
-      padding: 0 1.5rem 1.25rem 1.5rem;
+      padding: 0 1.15rem 1.15rem 1.15rem;
       border-top: 1px solid var(--color-border-subtle);
       margin-top: 0.25rem;
+
+      @media (min-width: 600px) {
+        padding: 0 1.5rem 1.25rem 1.5rem;
+      }
     }
 
     .faq-answer {

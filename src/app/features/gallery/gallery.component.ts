@@ -225,19 +225,19 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     /* Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.25rem;
 
       @media (min-width: 540px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       @media (min-width: 900px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       @media (min-width: 1200px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -251,6 +251,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--color-border);
       transition: all var(--transition-normal);
+      min-width: 0;
+      width: 100%;
 
       &:hover {
         transform: translateY(-4px);
@@ -365,7 +367,11 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 0.75rem;
+
+      @media (min-width: 540px) {
+        padding: 1.5rem;
+      }
     }
 
     .lightbox-container {
@@ -381,13 +387,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .lightbox-close {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 0.75rem;
+      right: 0.75rem;
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: #FFFFFF;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -395,6 +401,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       cursor: pointer;
       z-index: 10;
       transition: background var(--transition-fast);
+
+      @media (min-width: 540px) {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+      }
 
       &:hover {
         background: rgba(220, 38, 38, 0.8);
@@ -408,16 +421,22 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
-      width: 46px;
-      height: 46px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       cursor: pointer;
       z-index: 10;
       transition: all var(--transition-fast);
+
+      @media (min-width: 540px) {
+        width: 46px;
+        height: 46px;
+        font-size: 1.5rem;
+      }
 
       &:hover {
         background: var(--color-secondary);
@@ -425,11 +444,19 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       }
 
       &.lightbox-prev {
-        left: 1rem;
+        left: 0.5rem;
+
+        @media (min-width: 540px) {
+          left: 1rem;
+        }
       }
 
       &.lightbox-next {
-        right: 1rem;
+        right: 0.5rem;
+
+        @media (min-width: 540px) {
+          right: 1rem;
+        }
       }
     }
 

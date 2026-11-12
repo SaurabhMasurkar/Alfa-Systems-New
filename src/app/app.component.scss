@@ -2,10 +2,16 @@
   display: block;
   min-height: 100vh;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 main {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 /* Ensure mobile sticky bar does not obstruct footer content */

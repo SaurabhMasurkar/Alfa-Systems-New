@@ -118,7 +118,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
                 <app-icon name="arrow-right" [size]="16"></app-icon>
               </a>
               <a href="#clients" class="btn btn-secondary" (click)="scrollTo('#clients', $event)">
-                <span>View 60+ Valued Clients</span>
+                <span>View 108+ Valued Clients</span>
               </a>
             </div>
           </div>
@@ -134,12 +134,12 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
       align-items: center;
 
       @media (min-width: 1024px) {
-        grid-template-columns: 1fr 1.15fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
         gap: 4rem;
       }
     }
@@ -149,6 +149,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      min-width: 0;
     }
 
     .image-wrapper {
@@ -159,10 +160,14 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
       .about-img {
         width: 100%;
-        height: 400px;
+        height: 260px;
         object-fit: cover;
         display: block;
         transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (min-width: 600px) {
+          height: 400px;
+        }
 
         &:hover {
           transform: scale(1.03);
@@ -185,11 +190,24 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       gap: 1rem;
       max-width: 320px;
 
+      @media (max-width: 500px) {
+        bottom: 0.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        max-width: none;
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+      }
+
       .exp-number {
         font-size: 2.2rem;
         font-weight: 800;
         color: var(--color-secondary-light);
         line-height: 1;
+
+        @media (max-width: 500px) {
+          font-size: 1.65rem;
+        }
       }
 
       .exp-text {
@@ -197,6 +215,10 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
         font-weight: 600;
         line-height: 1.3;
         color: #E2E8F0;
+
+        @media (max-width: 500px) {
+          font-size: 0.78rem;
+        }
       }
     }
 
@@ -204,7 +226,11 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background-color: var(--color-bg-subtle);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 1.25rem 1.5rem;
+      padding: 1.25rem;
+
+      @media (min-width: 600px) {
+        padding: 1.25rem 1.5rem;
+      }
 
       .cred-header {
         display: flex;
@@ -221,17 +247,18 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
       .cred-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 0.75rem;
 
         @media (min-width: 500px) {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }
       }
 
       .cred-item {
         display: flex;
         flex-direction: column;
+        min-width: 0;
 
         .cred-label {
           font-size: 0.75rem;
@@ -245,12 +272,15 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
           font-size: 0.88rem;
           color: var(--color-text-main);
           font-weight: 700;
+          overflow-wrap: break-word;
         }
       }
     }
 
     /* Right Column */
     .about-content {
+      min-width: 0;
+
       h2 {
         margin-bottom: 1.25rem;
         color: var(--color-primary);
@@ -320,12 +350,12 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .commitments-list {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 0.65rem;
       margin-bottom: 2rem;
 
       @media (min-width: 600px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
 
       .commit-item {
@@ -335,6 +365,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
         font-size: 0.88rem;
         font-weight: 600;
         color: var(--color-text-main);
+        min-width: 0;
 
         app-icon {
           color: var(--color-accent-green);
@@ -345,8 +376,21 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .about-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0.85rem;
+
+      @media (min-width: 480px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        @media (min-width: 480px) {
+          width: auto;
+        }
+      }
     }
   `]
 })

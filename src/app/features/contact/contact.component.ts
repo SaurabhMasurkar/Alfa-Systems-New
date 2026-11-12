@@ -317,12 +317,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
 
       @media (min-width: 1024px) {
-        grid-template-columns: 1fr 1.35fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
         align-items: flex-start;
+        gap: 3rem;
       }
     }
 
@@ -331,13 +332,19 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      min-width: 0;
     }
 
     .info-card {
       background-color: var(--color-bg-subtle);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
-      padding: 2rem;
+      padding: 1.35rem 1.15rem;
+      min-width: 0;
+
+      @media (min-width: 600px) {
+        padding: 2rem;
+      }
 
       h3 {
         color: var(--color-primary);
@@ -398,6 +405,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       .p-info {
         display: flex;
         flex-direction: column;
+        min-width: 0;
 
         .p-role {
           font-size: 0.72rem;
@@ -415,8 +423,9 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
         .p-nums {
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
-          gap: 0.4rem;
+          gap: 0.35rem 0.45rem;
           font-size: 0.85rem;
           font-weight: 600;
 
@@ -520,6 +529,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
       .v-details {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 0.5rem;
         font-size: 0.95rem;
@@ -533,10 +543,11 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
           font-family: monospace;
           font-weight: 800;
           color: var(--color-primary);
-          font-size: 1.05rem;
+          font-size: 1rem;
           background: var(--color-bg-subtle);
           padding: 0.2rem 0.5rem;
           border-radius: var(--radius-sm);
+          overflow-wrap: anywhere;
         }
       }
     }
@@ -548,9 +559,10 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       border-radius: var(--radius-xl);
       padding: 2.5rem 2rem;
       box-shadow: var(--shadow-lg);
+      min-width: 0;
 
       @media (max-width: 600px) {
-        padding: 1.75rem 1.25rem;
+        padding: 1.4rem 1.05rem;
       }
     }
 
@@ -572,12 +584,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.15rem;
       margin-bottom: 1.25rem;
 
       @media (min-width: 600px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.25rem;
       }
     }
 
@@ -585,6 +598,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       gap: 0.35rem;
+      min-width: 0;
 
       &.full-width {
         margin-bottom: 1.25rem;

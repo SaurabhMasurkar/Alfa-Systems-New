@@ -73,25 +73,33 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .pillars-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
 
       @media (min-width: 640px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem;
+        margin-bottom: 3.5rem;
       }
 
       @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
     .pillar-card {
-      padding: 1.75rem;
+      padding: 1.35rem;
       display: flex;
       flex-direction: column;
       border-radius: var(--radius-lg);
       transition: all var(--transition-base);
+      min-width: 0;
+      width: 100%;
+
+      @media (min-width: 640px) {
+        padding: 1.75rem;
+      }
 
       &:hover {
         border-color: var(--color-secondary);
@@ -147,13 +155,18 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background-color: var(--color-bg-subtle);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
-      padding: 1.5rem 2rem;
+      padding: 1.35rem 1.15rem;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+
+      @media (min-width: 640px) {
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+      }
 
       @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .trust-badge-item {

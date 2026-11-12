@@ -125,16 +125,18 @@ import { IconComponent } from '../icon/icon.component';
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      padding-bottom: 3.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.25rem;
+      padding-bottom: 3rem;
 
       @media (min-width: 640px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem;
+        padding-bottom: 3.5rem;
       }
 
       @media (min-width: 1024px) {
-        grid-template-columns: 1.3fr 1fr 1fr 1.15fr;
+        grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)) minmax(0, 1.15fr);
         gap: 2.5rem;
       }
     }
@@ -142,6 +144,8 @@ import { IconComponent } from '../icon/icon.component';
     .footer-col {
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      overflow-wrap: break-word;
 
       .col-title {
         color: #FFFFFF;

@@ -59,15 +59,16 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .industries-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
 
       @media (min-width: 680px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
       }
 
       @media (min-width: 1080px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -75,6 +76,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       height: 100%;
+      min-width: 0;
+      width: 100%;
 
       .card-media {
         position: relative;

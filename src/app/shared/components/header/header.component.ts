@@ -133,6 +133,9 @@ import { IconComponent } from '../icon/icon.component';
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
     }
 
     /* Top Announcement Bar */
@@ -142,6 +145,7 @@ import { IconComponent } from '../icon/icon.component';
       font-size: 0.8rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding: 0.35rem 0;
+      width: 100%;
     }
 
     .top-bar-content {
@@ -149,13 +153,15 @@ import { IconComponent } from '../icon/icon.component';
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem 0.75rem;
     }
 
     .top-bar-left, .top-bar-right {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      max-width: 100%;
     }
 
     .est-badge {
@@ -165,6 +171,8 @@ import { IconComponent } from '../icon/icon.component';
       border-radius: var(--radius-sm);
       font-weight: 700;
       letter-spacing: 0.05em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .top-info {
@@ -195,8 +203,18 @@ import { IconComponent } from '../icon/icon.component';
       .d-none-mobile {
         display: none !important;
       }
+      .top-bar {
+        font-size: 0.74rem;
+      }
       .top-bar-content {
         justify-content: center;
+        text-align: center;
+      }
+      .top-bar-left, .top-bar-right {
+        justify-content: center;
+      }
+      .header-container {
+        height: 68px;
       }
     }
 

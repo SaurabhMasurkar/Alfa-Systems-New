@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { COMPANY_CONFIG } from '../../core/config/company.config';
 import { CustomerCategory, ServiceItem } from '../../core/models/company.model';
 import { SERVICES_DATA } from '../../core/data/services.data';
 import { WhatsAppService } from '../../core/services/whatsapp.service';
@@ -117,9 +118,9 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
               <span>Schedule Site Inspection</span>
               <app-icon name="arrow-right" [size]="18"></app-icon>
             </a>
-            <a href="tel:+918048205820" class="btn btn-outline-white btn-lg">
+            <a [href]="'tel:' + company.contact.primaryPhone" class="btn btn-outline-white btn-lg">
               <app-icon name="phone" [size]="18"></app-icon>
-              <span>Call +91 8048205820</span>
+              <span>Call {{ company.contact.primaryPhone }}</span>
             </a>
           </div>
         </div>
@@ -167,16 +168,17 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 4rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
 
       @media (min-width: 680px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
       }
 
       @media (min-width: 1080px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -184,6 +186,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-direction: column;
       height: 100%;
+      min-width: 0;
+      width: 100%;
 
       .card-media {
         position: relative;
@@ -287,11 +291,13 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
       .card-actions {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.75rem;
         margin-top: auto;
 
         .btn {
-          flex: 1;
+          flex: 1 1 135px;
+          min-width: 0;
         }
       }
     }
@@ -301,12 +307,18 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
       color: #FFFFFF;
       border-radius: var(--radius-xl);
-      padding: 2.5rem 2rem;
+      padding: 1.75rem 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
       box-shadow: var(--shadow-xl);
       border: 1px solid rgba(255, 255, 255, 0.12);
+      min-width: 0;
+
+      @media (min-width: 640px) {
+        padding: 2.25rem 2rem;
+        gap: 2rem;
+      }
 
       @media (min-width: 900px) {
         flex-direction: row;
@@ -338,14 +350,34 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
       .banner-actions {
         display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        flex-shrink: 0;
+        flex-direction: column;
+        gap: 0.85rem;
+        width: 100%;
+
+        .btn {
+          width: 100%;
+        }
+
+        @media (min-width: 560px) {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1rem;
+
+          .btn {
+            width: auto;
+          }
+        }
+
+        @media (min-width: 900px) {
+          width: auto;
+          flex-shrink: 0;
+        }
       }
     }
   `]
 })
 export class ServicesComponent {
+  company = COMPANY_CONFIG;
   allServices: ServiceItem[] = SERVICES_DATA;
   activeCategory: CustomerCategory = 'all';
 

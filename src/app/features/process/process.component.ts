@@ -106,16 +106,16 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .process-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.5rem;
       margin-bottom: 4rem;
 
       @media (min-width: 640px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -202,8 +202,14 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       background: rgba(15, 43, 89, 0.6);
       border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: var(--radius-xl);
-      padding: 2.5rem 2rem;
+      padding: 1.5rem 1rem;
       box-shadow: var(--shadow-xl);
+      min-width: 0;
+      overflow: hidden;
+
+      @media (min-width: 640px) {
+        padding: 2.25rem 2rem;
+      }
     }
 
     .comp-header {
@@ -224,6 +230,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     }
 
     .comp-table-wrapper {
+      width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -233,7 +240,10 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       border-collapse: collapse;
       text-align: left;
       font-size: 0.9rem;
-      min-width: 600px;
+
+      @media (min-width: 681px) {
+        min-width: 600px;
+      }
 
       th {
         padding: 1rem;
@@ -271,6 +281,63 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
         background-color: rgba(2, 132, 199, 0.1);
         font-weight: 500;
         width: 40%;
+      }
+
+      @media (max-width: 680px) {
+        display: block;
+
+        thead {
+          display: none;
+        }
+
+        tbody {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        tr {
+          display: block;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          background: rgba(10, 30, 63, 0.45);
+        }
+
+        td {
+          display: block;
+          width: 100% !important;
+          padding: 0.75rem 0.9rem;
+          font-size: 0.85rem;
+        }
+
+        .param-name {
+          background-color: rgba(10, 30, 63, 0.85);
+          border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+          font-size: 0.92rem;
+        }
+
+        .manual-val::before {
+          content: 'Traditional Manual: ';
+          display: block;
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #64748B;
+          margin-bottom: 0.2rem;
+        }
+
+        .alfa-val::before {
+          content: 'Alfa Mechanized: ';
+          display: block;
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #38BDF8;
+          margin-bottom: 0.2rem;
+        }
       }
     }
   `]

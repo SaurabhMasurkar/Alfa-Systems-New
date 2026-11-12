@@ -127,7 +127,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
           </div>
           <div class="stat-divider"></div>
           <div class="stat-box">
-            <span class="stat-number">60+</span>
+            <span class="stat-number">108+</span>
             <span class="stat-label">Major Institutional Clients</span>
           </div>
           <div class="stat-divider"></div>
@@ -151,12 +151,14 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       color: #FFFFFF;
       padding-top: 4rem;
       padding-bottom: 0;
+      width: 100%;
+      max-width: 100%;
       overflow: hidden;
     }
 
     @media (max-width: 768px) {
       .hero-section {
-        padding-top: 2.5rem;
+        padding-top: 2rem;
       }
     }
 
@@ -203,34 +205,44 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3.5rem;
-      padding-bottom: 4rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
+      padding-bottom: 3.5rem;
 
       @media (min-width: 1024px) {
-        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
         align-items: center;
         gap: 3rem;
+        padding-bottom: 4rem;
       }
     }
 
     /* Hero Left Content */
     .hero-content {
+      width: 100%;
       max-width: 680px;
+      min-width: 0;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.4rem 1rem;
+      gap: 0.55rem;
+      padding: 0.4rem 0.9rem;
       background: rgba(2, 132, 199, 0.18);
       border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: var(--radius-full);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #7DD3FC;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
+      max-width: 100%;
+
+      @media (max-width: 480px) {
+        font-size: 0.76rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-md);
+      }
 
       .badge-dot {
         width: 8px;
@@ -238,15 +250,17 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
         background-color: #38BDF8;
         border-radius: 50%;
         box-shadow: 0 0 10px #38BDF8;
+        flex-shrink: 0;
       }
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+      font-size: clamp(1.75rem, 5vw, 3.4rem);
       font-weight: 900;
       line-height: 1.15;
       color: #FFFFFF;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.15rem;
+      overflow-wrap: break-word;
 
       .highlight {
         color: #38BDF8;
@@ -258,23 +272,32 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     }
 
     .hero-subtitle {
-      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
       line-height: 1.6;
       color: #CBD5E1;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       max-width: 620px;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2.25rem;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+      width: 100%;
+
+      @media (min-width: 540px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
 
       .btn {
-        flex: 1 1 200px;
-        @media (min-width: 640px) {
-          flex: 0 0 auto;
+        width: 100%;
+        min-width: 0;
+
+        @media (min-width: 540px) {
+          width: auto;
         }
       }
     }
@@ -283,20 +306,21 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
-      padding-top: 1.5rem;
+      gap: 0.9rem 1.5rem;
+      padding-top: 1.25rem;
       border-top: 1px solid rgba(255, 255, 255, 0.12);
 
       .trust-item {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         font-weight: 600;
         color: #E2E8F0;
 
         app-icon {
           color: #38BDF8;
+          flex-shrink: 0;
         }
       }
     }
@@ -309,15 +333,22 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
       padding: 1.75rem;
       box-shadow: var(--shadow-xl);
       backdrop-filter: blur(8px);
+      width: 100%;
+      min-width: 0;
+
+      @media (max-width: 600px) {
+        padding: 1.25rem 1rem;
+        border-radius: var(--radius-lg);
+      }
     }
 
     .gateway-header {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       text-align: center;
 
       h3 {
         color: #FFFFFF;
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         margin-bottom: 0.25rem;
       }
 
@@ -329,22 +360,29 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .gateway-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
 
       @media (min-width: 640px) and (max-width: 1023px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.25rem;
       }
     }
 
     .gateway-card {
       background: rgba(10, 30, 63, 0.75);
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      padding: 1.4rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      width: 100%;
       transition: all var(--transition-base);
+
+      @media (max-width: 480px) {
+        padding: 1.15rem 1rem;
+      }
 
       &:hover {
         transform: translateY(-3px);

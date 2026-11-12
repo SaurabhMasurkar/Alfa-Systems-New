@@ -103,19 +103,26 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 
     .cta-cards-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
       max-width: 1040px;
       margin: 0 auto;
 
       @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 2rem;
       }
     }
 
     .cta-card {
-      padding: 2.5rem 2rem;
+      padding: 1.5rem 1.15rem;
       border-radius: var(--radius-xl);
+      min-width: 0;
+      width: 100%;
+
+      @media (min-width: 600px) {
+        padding: 2.25rem 2rem;
+      }
       display: flex;
       flex-direction: column;
       transition: all var(--transition-base);
@@ -133,6 +140,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
         margin-bottom: 1.5rem;
       }
 
