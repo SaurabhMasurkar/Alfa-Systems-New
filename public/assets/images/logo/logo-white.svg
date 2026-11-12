@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90" width="100%" height="100%" fill="none">
+  <!-- Brand Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Shield / Tank Outer Contour -->
+    <path d="M35 5 L62 18 C62 48 35 65 35 65 C35 65 8 48 8 18 Z" fill="#0D2A54" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Dynamic Clean Water Surge -->
+    <path d="M16 28 C24 20 46 20 54 28 C50 44 35 55 35 55 C35 55 20 44 16 28 Z" fill="url(#blueGradLight)"/>
+    <!-- Rotary Pressure Jet Blades / Sparkle -->
+    <circle cx="35" cy="33" r="5" fill="#38BDF8"/>
+    <path d="M35 18 L35 24 M35 42 L35 48 M20 33 L26 33 M44 33 L50 33" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M25 23 L29 27 M41 39 L45 43 M25 43 L29 39 M41 27 L45 23" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Brand Name Typography -->
+  <g transform="translate(88, 18)">
+    <!-- ALFA -->
+    <text x="0" y="32" font-family="'Inter', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="1.5" fill="#FFFFFF">
+      ALFA
+    </text>
+    <!-- Accent Line -->
+    <rect x="94" y="10" width="3" height="24" fill="#38BDF8" rx="1.5"/>
+    <text x="106" y="32" font-family="'Inter', system-ui, -apple-system, sans-serif" font-weight="700" font-size="28" letter-spacing="0.5" fill="#38BDF8">
+      SYSTEMS
+    </text>
+    <!-- Subtitle -->
+    <text x="2" y="52" font-family="'Inter', system-ui, -apple-system, sans-serif" font-weight="600" font-size="10.5" letter-spacing="3" fill="#94A3B8">
+      ADVANCED TANK CLEANING &amp; EQUIPMENT
+    </text>
+  </g>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="blueGradLight" x1="16" y1="20" x2="54" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+</svg>
